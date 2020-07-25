@@ -1,0 +1,10 @@
+//  sed commands use to replace string in text files
+//FROM:->        values ('30899e8c-46b6-466b-ad0b-157cc26d63ef',
+//TO:->          values ('UuidToBin('30899e8c-46b6-466b-ad0b-157cc26d63ef')',
+
+
+sed -i -Ee "s|[a-f0-9]{8}-([a-f0-9]{4}-){3}[a-f0-9]{12}|UuidToBin('&')|g" ./data.sql
+sed -i -- "s|'UuidToBin|UuidToBin|g" ./data.sql
+sed -i -- "s|')',|'),|g" ./data.sql
+sed -i -- "s|id_text|id_bin|g" ./data.sql
+sed -i -- "s|MOCK_DATA|TB_YOAN_PRODUCT|g" ./data.sql 
